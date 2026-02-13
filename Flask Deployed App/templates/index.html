@@ -1,93 +1,92 @@
 <html>
 {% extends 'base.html' %}
 {% block pagetitle %}
-AI Engine
+AI Engine - Plant Disease Detection
 {% endblock pagetitle %}
 
 {% block body %}
-<div>
-    <div class="container">
-        <!-- For demo purpose -->
-        <div class="row mb-5 text-center text-white">
-            <div class="col-lg-10 mx-auto">
-                <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(4, 54, 4);"><b>🍀AI
-                        Engine🍀</b></h1>
-                <p class="lead" style="font-weight: 500;color: black;">Let AI Engine Will Help You To Detect Disease</p>
+<div class="container py-5">
+    <div class="row mb-5 text-center fade-in-up">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="display-3 fw-bold text-white mb-3">
+                <i class="fas fa-brain"></i> AI Disease Detection Engine
+            </h1>
+            <p class="lead text-white fs-5">Upload a plant leaf image and let our AI identify diseases instantly</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="card-modern fade-in-up">
+                <div class="text-center mb-3">
+                    <i class="fas fa-info-circle fa-3x" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                </div>
+                <h5 class="fw-bold mb-3">Why Detect Plant Diseases?</h5>
+                <p class="text-muted">
+                    Early disease detection is crucial for plant health and crop yield. Our AI-powered system helps identify diseases before symptoms become severe, enabling timely intervention and treatment.
+                </p>
+                <p class="text-muted">
+                    Proper diagnosis prevents waste of resources and reduces plant losses, making it an essential tool for farmers and gardeners.
+                </p>
             </div>
         </div>
-        <!-- End -->
-        <div class="row ">
-            <div class="col mx-auto">
-                <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
 
-                    <h5><b>Why is it necessary to detect disease in plant ?</b></h5>
-                    <p>Plant diseases affect the growth of their respective species. In addition, some research gaps are
-                        identified from which to obtain greater transparency for detecting diseases in plants, even
-                        before their symptoms appear clearly.
-                        diagnosis is one of the most important aspects of a plant pathologist's training. Without proper
-                        identification of the disease and the disease-causing agent, disease control measures can be a
-                        waste of time and money and can lead to further plant losses. Proper disease diagnosis is
-                        necessary.
-                    </p>
+        <div class="col-lg-4">
+            <div class="card-modern fade-in-up" style="animation-delay: 0.1s;">
+                <div class="text-center mb-4">
+                    <div class="position-relative d-inline-block">
+                        <i class="fas fa-leaf fa-4x" style="color: #667eea;"></i>
+                    </div>
                 </div>
+
+                <form action="/submit" method="POST" enctype="multipart/form-data">
+                    <div class="text-center mb-4">
+                        <input type="file" id="actual-btn" hidden name="image" accept="image/*" />
+                        <label for="actual-btn"><i class="fas fa-upload"></i> Choose File</label>
+                        <label id="camera-btn"><i class="fas fa-camera"></i> Open Camera</label>
+                        <div id="file-chosen" class="mt-3">No file chosen</div>
+                    </div>
+
+                    <div id="camera-container" style="display: none;" class="text-center mb-3">
+                        <video id="camera-feed" width="100%" style="max-width: 320px; border-radius: 15px;" autoplay></video>
+                        <button type="button" id="capture-btn" class="btn-modern mt-3">
+                            <i class="fas fa-camera"></i> Capture Photo
+                        </button>
+                    </div>
+
+                    <div id="preview-container" style="display: none;" class="text-center mb-4">
+                        <img id="preview" src="#" alt="Preview" style="max-width: 100%; max-height: 300px; border-radius: 15px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" />
+                    </div>
+
+                    <div class="text-center">
+                        <p class="text-muted mb-4">
+                            <i class="fas fa-magic"></i> Upload your plant's leaf image and see the AI magic
+                        </p>
+                        <button type="submit" class="btn-modern">
+                            <i class="fas fa-paper-plane"></i> Analyze Image
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="col mx-auto">
-                <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;"><img
-                        src="https://www.pngjoy.com/pngl/250/4840262_plants-png-indoors-tropical-plant-png-hd-png.png "
-                        height="300" alt="" width="200" class="d-block mx-auto mb-4 rounded-pill">
+        </div>
 
-                    <!-- Default bootstrap file upload-->
-
-                    <form action="/submit" method="POST" enctype="multipart/form-data">
-                        <div class="custom-file overflow-hidden mb-4">
-                            <input type="file" id="actual-btn" hidden name="image" />
-                            <label for="actual-btn">Choose File</label>
-                            <label id="camera-btn">Open Camera</label>
-
-                            </br>
-                            <span id="file-chosen">No file chosen</span>
-                        </div>
-
-                        <!-- Camera feed container (hidden initially) -->
-                        <div id="camera-container" style="display: none;">
-                            <video id="camera-feed" width="320" height="240" autoplay></video>
-                            <button type="button" id="capture-btn">Capture Photo</button>
-                        </div>
-
-                        <!-- Preview Image (will show the captured photo) -->
-                        <img id="preview" src="#" alt="Camera Photo Preview" style="display: none; max-width: 100%;" />
-
-
-                        <!-- End -->
-
-                        <h6 class="text-center mb-4 text-muted">
-                            Simply upload your plant's leaf image and then see the magic of AI.
-                        </h6>
-
-                        <!-- Custom bootstrap upload file-->
-                        <center>
-                            <a class="mx-2"><button type="submit" class="btn btn-outline-success">Submit</button></a>
-                        </center>
-                    </form>
-                    <!-- End -->
-
+        <div class="col-lg-4">
+            <div class="card-modern fade-in-up" style="animation-delay: 0.2s;">
+                <div class="text-center mb-3">
+                    <i class="fas fa-shield-alt fa-3x" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"></i>
                 </div>
-            </div>
-            <div class="col mx-auto">
-                <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
-                    <h5><b>Prevent Plant Disease follow below steps:</b></h5>
-                    <ol>
-                        <li>Follow Good Sanitation Practices.</li>
-                        <li>Fertilize to Keep Your Plants Healthy.</li>
-                        <li>Inspect Plants for Diseases Before You Bring Them Home.</li>
-                        <li>Allow the Soil to Warm Before Planting.</li>
-                        <li>Ensure a Healthy Vegetable Garden By Rotating Crops.</li>
-                        <li>Provide Good Air Circulation</li>
-                        <li>Remove Diseased Stems and Foliage</li>
-                    </ol>
-                    <a target="_blank" href="https://www.thespruce.com/prevent-plant-diseases-in-your-garden-2539511"
-                        class="mx-2"><button type="button" class="btn btn-outline-success">More info</button></a>
-                </div>
+                <h5 class="fw-bold mb-3">Prevention Tips</h5>
+                <ul class="list-unstyled text-muted">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Follow good sanitation practices</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Fertilize to keep plants healthy</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Inspect plants before bringing home</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Ensure proper air circulation</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Rotate crops regularly</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Remove diseased foliage promptly</li>
+                </ul>
+                <a target="_blank" href="https://www.thespruce.com/prevent-plant-diseases-in-your-garden-2539511" class="btn-outline-modern w-100">
+                    <i class="fas fa-external-link-alt"></i> Learn More
+                </a>
             </div>
         </div>
     </div>
@@ -96,11 +95,24 @@ AI Engine
 <script>
     const actualBtn = document.getElementById('actual-btn');
     const captureBtn = document.getElementById('capture-btn');
-
     const fileChosen = document.getElementById('file-chosen');
+    const preview = document.getElementById('preview');
+    const previewContainer = document.getElementById('preview-container');
 
+    // Show preview when file is selected
     actualBtn.addEventListener('change', function () {
-        fileChosen.textContent = this.files[0].name
+        const file = this.files[0];
+        if (file) {
+            fileChosen.textContent = file.name;
+            
+            // Create a FileReader to read the image
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                previewContainer.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
     })
 
 
@@ -153,9 +165,16 @@ AI Engine
         document.getElementById('file-chosen').textContent = capturedFile.name;
 
         // Show the captured image preview
-        const preview = document.getElementById('preview');
         preview.src = dataUrl;
-        preview.style.display = 'block'; // Show the preview
+        previewContainer.style.display = 'block';
+        
+        // Hide camera feed after capture
+        document.getElementById('camera-container').style.display = 'none';
+        
+        // Stop the camera stream
+        const stream = cameraFeed.srcObject;
+        const tracks = stream.getTracks();
+        tracks.forEach(track => track.stop());
     });
 
     // Helper function to convert data URL to Blob
@@ -177,48 +196,6 @@ AI Engine
             dataTransfer.items.add(capturedFile); // Add the captured file to the DataTransfer object
             document.getElementById('actual-btn').files = dataTransfer.files; // Assign the file to the input
         }
-    });
-
-
-
-
-    // Start the camera feed
-    async function startCamera() {
-        const videoElement = document.getElementById('camera-feed');
-        try {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-            videoElement.srcObject = stream;
-        } catch (err) {
-            console.error('Error accessing the camera: ', err);
-        }
-    }
-
-    // Capture the image from the video feed
-    document.getElementById('capture-btn').addEventListener('click', function () {
-        const video = document.getElementById('camera-feed');
-        const canvas = document.getElementById('canvas');
-        const context = canvas.getContext('2d');
-
-        // Set canvas size equal to video size
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-
-        // Draw the video frame onto the canvas
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-        // Convert the image to a data URL and create a file input
-        const dataUrl = canvas.toDataURL('image/png');
-        const fileInput = document.getElementById('captured-image');
-        const file = dataUrlToFile(dataUrl, 'captured-image.png');
-
-        // Create a File object from the base64 image data
-        const dataTransfer = new DataTransfer();
-        dataTransfer.items.add(file);
-        fileInput.files = dataTransfer.files;
-
-        // Hide the camera feed and display the chosen file text
-        document.getElementById('camera-container').style.display = 'none';
-        document.getElementById('file-chosen').innerText = 'Image Captured';
     });
 
     // Convert base64 image data to a file object

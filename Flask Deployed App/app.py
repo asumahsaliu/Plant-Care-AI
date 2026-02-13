@@ -60,8 +60,10 @@ def submit():
         supplement_name = supplement_info['supplement name'][pred]
         supplement_image_url = supplement_info['supplement image'][pred]
         supplement_buy_link = supplement_info['buy link'][pred]
+        # Use the uploaded image path for display
+        uploaded_image_path = '/' + file_path.replace('\\', '/')
         return render_template('submit.html' , title = title , desc = description , prevent = prevent , 
-                               image_url = image_url , pred = pred ,sname = supplement_name , simage = supplement_image_url , buy_link = supplement_buy_link)
+                               image_url = uploaded_image_path , pred = pred ,sname = supplement_name , simage = supplement_image_url , buy_link = supplement_buy_link)
 
 @app.route('/market', methods=['GET', 'POST'])
 def market():

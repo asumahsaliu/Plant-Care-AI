@@ -1,0 +1,29 @@
+# Model files (too large for GitHub)
+*.pt
+*.pth
+*.h5
+*.pkl
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads
+Flask Deployed App/static/uploads/*.jpg
+Flask Deployed App/static/uploads/*.png
+!Flask Deployed App/static/uploads/Readme.md

@@ -5,63 +5,152 @@ Contact Us
 
 {% block body %}
 
-<div class="row mb-5 text-center text-white laptop">
-    <div class="col-lg-10 mx-auto">
-        <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(4, 54, 4);"><b>📞Contact-Us📞</b></h1>
-        <p class="lead" style="font-weight: 500;color: black;">For Any Queries & Suggestions Contact Us. We Are Happy To
-            Help.</p>
-    </div>
-</div>
+<style>
+    .contact-container {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+    }
+    
+    .contact-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        max-width: 600px;
+        width: 100%;
+        transition: transform 0.3s ease;
+    }
+    
+    .contact-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .contact-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .contact-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+    
+    .profile-section {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .profile-name {
+        font-size: 2rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 15px;
+    }
+    
+    .profile-bio {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+    
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+    }
+    
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .social-link:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-10px) scale(1.1);
+        text-decoration: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .social-icon {
+        font-size: 32px;
+    }
+    
+    .gmail-icon { color: #EA4335; }
+    .facebook-icon { color: #1877F2; }
+    .whatsapp-icon { color: #25D366; }
+    
+    @media (max-width: 768px) {
+        .contact-card {
+            padding: 30px 20px;
+        }
+        
+        .contact-title {
+            font-size: 2rem;
+        }
+        
+        .profile-name {
+            font-size: 1.5rem;
+        }
+        
+        .social-link {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .social-icon {
+            font-size: 28px;
+        }
+    }
+</style>
 
-<div class="row p-3">
-    <div class="col">
-        <div class=" p-5 bg-white shadow rounded-lg" style="height: 95%;">
-            <center>
-                <h3>Manthan Bhikadiya</h3>
-                <p class="lead" style="font-weight: 350;">Hi, I am Manthan Bhikadiya. Currently Pursuing Bachelors in
-                    Information
-                    Technology.My Main Focus is on Machine Learning, Deep Learning and Artificial Intelligence.I am Also
-                    Interested in Blockchain and Flutter App Development.</p>
-            </center>
-            <div>
-                <h5>Social Media Handles :</h5><br>
-                <a target="_blank" href='mailto:bhikadiyamanthan@gmail.com'><img
-                        src="https://image.flaticon.com/icons/png/512/281/281769.png" height="40" width="40"></a> :
-                bhikadiyamanthan@gmail.com<br><br>
-                <a target="_blank" href='manthan-bhikadiya.medium.com'><img
-                        src="https://cdn4.iconfinder.com/data/icons/social-media-2210/24/Medium-512.png" height="44"
-                        width="44"></a> : manthan-bhikadiya<br><br>
-                <a target="_blank" href='https://github.com/manthan89-py'><img
-                        src="https://image.flaticon.com/icons/png/512/25/25231.png" height="40" width="40"></a> :
-                manthan89-py<br><br>
-                <a target="_blank" href='https://www.linkedin.com/in/manthanbhikadiya'><img
-                        src="https://image.flaticon.com/icons/png/512/174/174857.png" height="40" width="40"></a> :
-                manthanbhikadiya<br>
-            </div>
+<div class="contact-container">
+    <div class="contact-card">
+        <h1 class="contact-title">📞 Get In Touch</h1>
+        <p class="contact-subtitle">Have questions or suggestions? Feel free to reach out!</p>
+        
+        <div class="profile-section">
+            <h2 class="profile-name">Yaw Saliu</h2>
+            <p class="profile-bio">
+                Currently pursuing Bachelors in Computer Science with a focus on Machine Learning, 
+                Deep Learning, and Artificial Intelligence. Also interested in Blockchain and Flutter App Development.
+            </p>
         </div>
-    </div>
-
-    <div class="col">
-        <div class=" p-5 bg-white shadow rounded-lg" style="height: 95%;">
-            <center>
-                <h3>Krishna Baldaniya</h3>
-                <p class="lead" style="font-weight: 350;">Hi, I am Krishna Baldaniya. I am an entrepreneur, currently
-                    co-founder at KrsikX India LLP which is an Agri-Tech Startup. Pursuing bachelors in Information
-                    Technology. My main focuses on the technical side are Cloud computing and mobile App development.
-                </p>
-            </center>
-            <div>
-                <h5>Social Media Handles :</h5><br>
-                <a target="_blank" href='mailto:krishna.baldaniya93@gmail.com'><img
-                        src="https://image.flaticon.com/icons/png/512/281/281769.png" height="40" width="40"></a> :
-                krishna.baldaniya93@gmail.com<br><br>
-                <a target="_blank" href='https://www.instagram.com/krishna.baldaniya/'><img
-                        src="https://image.flaticon.com/icons/png/512/174/174855.png" height="44" width="44"></a> :
-                krishna.baldaniya<br><br>
-                <a target="_blank" href='https://www.linkedin.com/in/krishna-baldaniya-5547381a1/'><img
-                        src="https://image.flaticon.com/icons/png/512/174/174857.png" height="40" width="40"></a> :
-                krishna-baldaniya<br>
-            </div>
+        
+        <div class="social-links">
+            <a href="mailto:bhikadiyamanthan@gmail.com" class="social-link" target="_blank" title="Email">
+                <i class="fas fa-envelope social-icon gmail-icon"></i>
+            </a>
+            
+            <a href="https://www.facebook.com/manthan.bhikadiya" class="social-link" target="_blank" title="Facebook">
+                <i class="fab fa-facebook social-icon facebook-icon"></i>
+            </a>
+            
+            <a href="https://wa.me/1234567890" class="social-link" target="_blank" title="WhatsApp">
+                <i class="fab fa-whatsapp social-icon whatsapp-icon"></i>
+            </a>
         </div>
     </div>
 </div>
